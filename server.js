@@ -3,6 +3,9 @@ const app = express()
 const PORT= 3000
 
 
+app.use(express.urlencoded({ extended : true}))
+app.use(express.json())
+
 
 const characters = [
     {name: 'Yoda',
@@ -13,7 +16,7 @@ const characters = [
     routeName: 'yoda'
 
     },
-    {name: 'Luke Skywalker',
+    {name: "Luke Skywalker",
     role: 'Jedi Master',
     forcepoints: 10000,
     age: 40,
@@ -56,6 +59,12 @@ app.get('/api/characters/:routeName', (req,res) => {
     res.json(character)
 })
 
+
+app.post('/api/characters/add', (req,res) => {
+
+    console.log(req.bodyg)
+    res.end()
+})
 
 
 
